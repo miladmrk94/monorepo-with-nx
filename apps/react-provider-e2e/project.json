@@ -1,0 +1,33 @@
+{
+  "name": "react-provider-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/react-provider-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/react-provider-e2e/cypress.config.ts",
+        "devServerTarget": "react-provider:serve:development",
+        "testingType": "e2e"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "react-provider:serve:production"
+        },
+        "ci": {
+          "devServerTarget": "react-provider:serve-static"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/react-provider-e2e/**/*.js"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["react-provider"]
+}

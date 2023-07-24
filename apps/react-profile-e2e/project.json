@@ -1,0 +1,33 @@
+{
+  "name": "react-profile-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/react-profile-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/react-profile-e2e/cypress.config.ts",
+        "devServerTarget": "react-profile:serve:development",
+        "testingType": "e2e"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "react-profile:serve:production"
+        },
+        "ci": {
+          "devServerTarget": "react-profile:serve-static"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/react-profile-e2e/**/*.js"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["react-profile"]
+}
