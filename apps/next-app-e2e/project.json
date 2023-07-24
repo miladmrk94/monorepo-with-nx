@@ -1,19 +1,19 @@
 {
-  "name": "next-immigo-app-e2e",
+  "name": "next-app-e2e",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/next-immigo-app-e2e/src",
+  "sourceRoot": "apps/next-app-e2e/src",
   "projectType": "application",
   "targets": {
     "e2e": {
       "executor": "@nx/cypress:cypress",
       "options": {
-        "cypressConfig": "apps/next-immigo-app-e2e/cypress.config.ts",
-        "devServerTarget": "next-immigo-app:serve:development",
+        "cypressConfig": "apps/next-app-e2e/cypress.config.ts",
+        "devServerTarget": "next-app:serve:development",
         "testingType": "e2e"
       },
       "configurations": {
         "production": {
-          "devServerTarget": "next-immigo-app:serve:production"
+          "devServerTarget": "next-app:serve:production"
         }
       }
     },
@@ -21,10 +21,10 @@
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/next-immigo-app-e2e/**/*.js"]
+        "lintFilePatterns": ["apps/next-app-e2e/**/*.js"]
       }
     }
   },
   "tags": [],
-  "implicitDependencies": ["next-immigo-app"]
+  "implicitDependencies": ["next-app"]
 }

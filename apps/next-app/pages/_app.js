@@ -4,7 +4,7 @@ function CustomApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Welcome to next-immigo-app!</title>
+        <title>Welcome to next-app!</title>
       </Head>
       <main className="app">
         <Component {...pageProps} />
